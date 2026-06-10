@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pinks Emporium — Notary & Boutique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blush:      #F2B8C6;
+      --blush-light:#FDE8EE;
+      --cream:      #FDF6F0;
+      --mauve:      #8B4A5C;
+      --mauve-dark: #6B3347;
+      --gold:       #C9A84C;
+      --gold-light: #E8D5A3;
+      --white:      #FFFFFF;
+      --text-dark:  #3D2030;
+      --text-mid:   #6B4A55;
+      --text-light: #A8788A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #fff 0%, var(--blush-light) 60%, var(--blush) 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* floating petals */
+    .petal {
+      position: absolute;
+      width: 18px; height: 24px;
+      background: var(--blush);
+      border-radius: 50% 0 50% 0;
+      opacity: 0.35;
+      animation: drift linear infinite;
+    }
+    @keyframes drift {
+      0%   { transform: translateY(-60px) rotate(0deg);   opacity: 0; }
+      10%  { opacity: 0.35; }
+      90%  { opacity: 0.2; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+    .hero-eyebrow {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--mauve);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 10vw, 6.5rem);
+      font-weight: 700;
+      color: var(--mauve-dark);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--mauve);
+    }
+
+    .hero-sub {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-mid);
+      margin-top: 0.8rem;
+      max-width: 480px;
+    }
+
+    .hero-tagline {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-top: 0.5rem;
+      max-width: 400px;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      border-radius: 50px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139,74,92,0.25); }
+
+    .btn-primary {
+      background: var(--mauve);
+      color: var(--white);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--mauve);
+      border: 2px solid var(--mauve);
+    }
+    .btn-secondary:hover { background: var(--blush-light); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-light);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: var(--blush);
+      animation: grow 1.8s ease-in-out infinite;
+    }
+    @keyframes grow {
+      0%, 100% { height: 20px; opacity: 0.4; }
+      50%       { height: 45px; opacity: 1;   }
+    }
+
+    /* ── RIBBON DIVIDER ── */
+    .ribbon-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2.5rem 1.5rem;
+      background: var(--white);
+    }
+    .ribbon-line {
+      flex: 1;
+      max-width: 200px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold));
+    }
+    .ribbon-line.right { background: linear-gradient(to left, transparent, var(--gold)); }
+    .ribbon-center {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--gold);
+      font-size: 1.3rem;
+    }
+    .ribbon-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 5rem 1.5rem; }
+
+    .section-eyebrow {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--mauve-dark);
+      line-height: 1.15;
+    }
+    .section-title em { font-style: italic; color: var(--mauve); }
+
+    .section-desc {
+      font-size: 0.975rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 520px;
+      margin-top: 0.75rem;
+    }
+
+    /* ── NOTARY SECTION ── */
+    #notary {
+      background: var(--white);
+    }
+
+    .notary-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .service-chip {
+      background: var(--blush-light);
+      border: 1px solid var(--blush);
+      border-radius: 8px;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.83rem;
+      color: var(--mauve-dark);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .service-chip::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    .notary-detail-card {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 2rem;
+      border-left: 4px solid var(--gold);
+      margin-bottom: 1.25rem;
+    }
+    .notary-detail-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--mauve-dark);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .notary-detail-card p,
+    .notary-detail-card ul {
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+    .notary-detail-card ul { padding-left: 1.1rem; }
+    .notary-detail-card ul li { margin-bottom: 0.3rem; }
+
+    .notary-cta { margin-top: 2rem; }
+
+    /* ── CONTACT FORM ── */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-top: 2rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .form-field label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      background: var(--white);
+      border: 1.5px solid var(--blush);
+      border-radius: 10px;
+      padding: 0.7rem 1rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus { border-color: var(--mauve); }
+    .form-field textarea { resize: vertical; min-height: 100px; }
+
+    /* ── BOUTIQUE SECTION ── */
+    #boutique {
+      background: var(--blush-light);
+    }
+
+    .boutique-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .boutique-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(139,74,92,0.08);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(139,74,92,0.15);
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(135deg, var(--blush-light), var(--blush));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+
+    .product-body {
+      padding: 1.25rem;
+    }
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--mauve-dark);
+      margin-bottom: 0.35rem;
+    }
+    .product-desc {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--mauve);
+    }
+    .btn-sm {
+      padding: 0.45rem 1.1rem;
+      font-size: 0.75rem;
+      border-radius: 50px;
+      background: var(--mauve);
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .btn-sm:hover { background: var(--mauve-dark); }
+
+    .payment-strip {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      justify-content: center;
+      text-align: center;
+    }
+    .payment-strip h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--mauve-dark);
+      width: 100%;
+    }
+    .pay-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .pay-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+    .pay-icon.venmo   { background: #3D95CE; color: white; }
+    .pay-icon.cashapp { background: #00D632; color: white; }
+    .pay-icon.paypal  { background: #003087; color: white; }
+    .pay-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+    .pay-handle {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    .pickup-note {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--mauve-dark);
+      color: var(--blush-light);
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    .footer-inner { max-width: 600px; margin: 0 auto; }
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--blush);
+      margin-bottom: 0.4rem;
+    }
+    .footer-tagline {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 1.75rem;
+    }
+    .footer-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 1.75rem;
+    }
+    .footer-contacts a {
+      color: var(--blush-light);
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .footer-contacts a:hover { color: var(--gold-light); }
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      margin-top: 1.5rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .notary-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── PETALS ── -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hero = document.querySelector('.hero');
+    for (let i = 0; i < 12; i++) {
+      const p = document.createElement('div');
+      p.className = 'petal';
+      p.style.cssText = `
+        left: ${Math.random()*100}%;
+        top: ${Math.random()*-20}%;
+        animation-duration: ${6 + Math.random()*8}s;
+        animation-delay: ${Math.random()*8}s;
+        transform: rotate(${Math.random()*180}deg) scale(${0.6 + Math.random()*0.8});
+        opacity: ${0.15 + Math.random()*0.3};
+      `;
+      hero.appendChild(p);
+    }
+  });
+</script>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <p class="hero-eyebrow">San Antonio, Texas</p>
+  <h1 class="hero-title"><em>Pinks</em> Emporium</h1>
+  <p class="hero-sub">Notary Services & Boutique Finds</p>
+  <p class="hero-tagline">A warm little corner of the world where paperwork meets pretty things.</p>
+  <div class="hero-buttons">
+    <a href="#notary"  class="btn btn-primary">Book Notary Services</a>
+    <a href="#boutique" class="btn btn-secondary">Shop the Boutique</a>
+  </div>
+  <div class="scroll-hint">scroll</div>
+</section>
+
+<!-- ── RIBBON DIVIDER ── -->
+<div class="ribbon-divider">
+  <div class="ribbon-line"></div>
+  <div class="ribbon-center">
+    <span>🖋️</span>
+    <span class="ribbon-label">Notary</span>
+    <span style="color:var(--blush); font-size:0.8rem;">✦</span>
+    <span class="ribbon-label">Boutique</span>
+    <span>🎀</span>
+  </div>
+  <div class="ribbon-line right"></div>
+</div>
+
+<!-- ── NOTARY SECTION ── -->
+<section id="notary">
+  <div class="notary-inner">
+
+    <div>
+      <span class="section-eyebrow">Notary Services</span>
+      <h2 class="section-title">Official. <em>Friendly.</em><br>Right here for you.</h2>
+      <p class="section-desc">Getting documents notarized shouldn't be stressful. I make it simple, professional, and as easy as possible — on your schedule.</p>
+
+      <div class="services-grid">
+        <div class="service-chip">Acknowledgments</div>
+        <div class="service-chip">Jurats</div>
+        <div class="service-chip">Oaths & Affirmations</div>
+        <div class="service-chip">Copy Certifications</div>
+        <div class="service-chip">General Notary</div>
+        <div class="service-chip">Mobile Available</div>
+      </div>
+
+      <div class="notary-detail-card" style="margin-top: 2rem;">
+        <h4>Pricing</h4>
+        <ul>
+          <li>$10 per notarized signature <span style="color:var(--gold); font-size:0.75rem;">(Texas standard)</span></li>
+          <li>Travel fee: $10–$25 depending on distance</li>
+          <li>After-hours fee: ask when you book</li>
+        </ul>
+      </div>
+
+      <div class="notary-detail-card">
+        <h4>Availability</h4>
+        <p>Flexible hours · Evenings & weekends available<br>Mobile notary service available on request</p>
+      </div>
+
+      <div class="notary-detail-card">
+        <h4>What to bring</h4>
+        <ul>
+          <li>Valid government-issued photo ID</li>
+          <li>Your documents, unsigned</li>
+          <li>Any required witnesses</li>
+        </ul>
+      </div>
+
+      <div class="notary-cta">
+        <a href="#contact-form" class="btn btn-primary">Request an Appointment</a>
+      </div>
+    </div>
+
+    <div id="contact-form">
+      <span class="section-eyebrow">Get in Touch</span>
+      <h2 class="section-title">Let's <em>connect.</em></h2>
+      <p class="section-desc">Fill out the form and I'll get back to you quickly to confirm your appointment or answer any questions.</p>
+
+      <form class="contact-form" onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-field">
+            <label>First Name</label>
+            <input type="text" placeholder="Rosa" />
+          </div>
+          <div class="form-field">
+            <label>Last Name</label>
+            <input type="text" placeholder="Garcia" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Email</label>
+          <input type="email" placeholder="you@email.com" />
+        </div>
+        <div class="form-field">
+          <label>Phone</label>
+          <input type="tel" placeholder="(210) 555-0000" />
+        </div>
+        <div class="form-field">
+          <label>Service Needed</label>
+          <select>
+            <option value="">Select a service…</option>
+            <option>Acknowledgment</option>
+            <option>Jurat</option>
+            <option>Oath / Affirmation</option>
+            <option>Copy Certification</option>
+            <option>General Notary</option>
+            <option>Other / Not sure</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Message</label>
+          <textarea placeholder="Tell me a little about what you need and when works for you…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Send Message ✦</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── RIBBON DIVIDER ── -->
+<div class="ribbon-divider">
+  <div class="ribbon-line"></div>
+  <div class="ribbon-center">
+    <span>✨</span>
+    <span class="ribbon-label">The Boutique</span>
+    <span>✨</span>
+  </div>
+  <div class="ribbon-line right"></div>
+</div>
+
+<!-- ── BOUTIQUE SECTION ── -->
+<section id="boutique">
+  <div class="boutique-inner">
+
+    <div class="boutique-header">
+      <span class="section-eyebrow">The Boutique</span>
+      <h2 class="section-title">Pretty things,<br><em>curated with love.</em></h2>
+      <p class="section-desc" style="margin: 0.75rem auto 0;">Handpicked finds, handmade goods, and little gifts that feel special. Browse, fall in love, and message to snag yours.</p>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-img">🧴</div>
+        <div class="product-body">
+          <div class="product-name">Self-Care Bundle</div>
+          <div class="product-desc">A curated set of little luxuries to treat yourself or gift to someone special.</div>
+          <div class="product-footer">
+            <span class="product-price">$22</span>
+            <a href="#contact-form" class="btn-sm">Inquire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">🕯️</div>
+        <div class="product-body">
+          <div class="product-name">Soy Candle — Rose Vanilla</div>
+          <div class="product-desc">Hand-poured, clean burn, long-lasting. Makes any room feel like a boutique.</div>
+          <div class="product-footer">
+            <span class="product-price">$14</span>
+            <a href="#contact-form" class="btn-sm">Inquire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">💌</div>
+        <div class="product-body">
+          <div class="product-name">Stationery Set</div>
+          <div class="product-desc">Pretty notecards for birthdays, thank-yous, or just because. Blank inside.</div>
+          <div class="product-footer">
+            <span class="product-price">$10</span>
+            <a href="#contact-form" class="btn-sm">Inquire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">🎀</div>
+        <div class="product-body">
+          <div class="product-name">Gift Wrap Add-On</div>
+          <div class="product-desc">Tissue, ribbon, and a hand-tied bow — add this to any boutique order.</div>
+          <div class="product-footer">
+            <span class="product-price">$4</span>
+            <a href="#contact-form" class="btn-sm">Inquire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">🌸</div>
+        <div class="product-body">
+          <div class="product-name">Seasonal Item</div>
+          <div class="product-desc">Rotating finds that match the season. Ask what's in stock right now!</div>
+          <div class="product-footer">
+            <span class="product-price">Varies</span>
+            <a href="#contact-form" class="btn-sm">Ask me</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">✨</div>
+        <div class="product-body">
+          <div class="product-name">Custom Order</div>
+          <div class="product-desc">Have something specific in mind? Let's make it happen.</div>
+          <div class="product-footer">
+            <span class="product-price">Let's talk</span>
+            <a href="#contact-form" class="btn-sm">Let's talk</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PAYMENT -->
+    <div class="payment-strip">
+      <h3>Ready to order? Pay it your way. 💛</h3>
+
+      <div class="pay-option">
+        <div class="pay-icon venmo">V</div>
+        <div class="pay-label">Venmo</div>
+        <div class="pay-handle">@PinksEmporium</div>
+      </div>
+
+      <div class="pay-option">
+        <div class="pay-icon cashapp">$</div>
+        <div class="pay-label">Cash App</div>
+        <div class="pay-handle">$PinksEmporium</div>
+      </div>
+
+      <div class="pay-option">
+        <div class="pay-icon paypal">P</div>
+        <div class="pay-label">PayPal</div>
+        <div class="pay-handle">@PinksEmporium</div>
+      </div>
+
+      <p class="pickup-note" style="width:100%;">📍 Local pickup available in San Antonio &nbsp;·&nbsp; Small delivery fee for nearby areas</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-name">Pinks Emporium</div>
+    <div class="footer-tagline">Notary Services & Boutique · San Antonio, TX</div>
+
+    <div class="footer-contacts">
+      <a href="mailto:hello@pinksemporium.com">✉ hello@pinksemporium.com</a>
+      <a href="tel:2105550000">📞 (210) 555-0000</a>
+    </div>
+
+    <p class="footer-copy">Pinks Emporium © 2026 &nbsp;✦&nbsp; Made with love in San Antonio</p>
+  </div>
+</footer>
+
+</body>
+</html>
