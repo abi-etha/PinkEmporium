@@ -45,7 +45,6 @@
       overflow: hidden;
     }
 
-    /* floating petals */
     .petal {
       position: absolute;
       width: 18px; height: 24px;
@@ -79,11 +78,7 @@
       line-height: 1.05;
       letter-spacing: -0.01em;
     }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--mauve);
-    }
+    .hero-title em { font-style: italic; color: var(--mauve); }
 
     .hero-sub {
       font-family: 'Playfair Display', serif;
@@ -127,11 +122,7 @@
       border: none;
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139,74,92,0.25); }
-
-    .btn-primary {
-      background: var(--mauve);
-      color: var(--white);
-    }
+    .btn-primary { background: var(--mauve); color: var(--white); }
     .btn-secondary {
       background: transparent;
       color: var(--mauve);
@@ -162,7 +153,7 @@
     }
     @keyframes grow {
       0%, 100% { height: 20px; opacity: 0.4; }
-      50%       { height: 45px; opacity: 1;   }
+      50%       { height: 45px; opacity: 1; }
     }
 
     /* ── RIBBON DIVIDER ── */
@@ -196,7 +187,7 @@
       color: var(--gold);
     }
 
-    /* ── SECTION COMMON ── */
+    /* ── SECTIONS ── */
     section { padding: 5rem 1.5rem; }
 
     .section-eyebrow {
@@ -209,7 +200,6 @@
       display: block;
       margin-bottom: 0.6rem;
     }
-
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 5vw, 3rem);
@@ -218,7 +208,6 @@
       line-height: 1.15;
     }
     .section-title em { font-style: italic; color: var(--mauve); }
-
     .section-desc {
       font-size: 0.975rem;
       color: var(--text-mid);
@@ -227,10 +216,8 @@
       margin-top: 0.75rem;
     }
 
-    /* ── NOTARY SECTION ── */
-    #notary {
-      background: var(--white);
-    }
+    /* ── NOTARY ── */
+    #notary { background: var(--white); }
 
     .notary-inner {
       max-width: 1100px;
@@ -247,7 +234,6 @@
       gap: 0.75rem;
       margin-top: 2rem;
     }
-
     .service-chip {
       background: var(--blush-light);
       border: 1px solid var(--blush);
@@ -260,12 +246,7 @@
       align-items: center;
       gap: 0.5rem;
     }
-    .service-chip::before {
-      content: '✦';
-      color: var(--gold);
-      font-size: 0.6rem;
-      flex-shrink: 0;
-    }
+    .service-chip::before { content: '✦'; color: var(--gold); font-size: 0.6rem; flex-shrink: 0; }
 
     .notary-detail-card {
       background: var(--cream);
@@ -290,21 +271,12 @@
     .notary-detail-card ul { padding-left: 1.1rem; }
     .notary-detail-card ul li { margin-bottom: 0.3rem; }
 
-    .notary-cta { margin-top: 2rem; }
+    .notary-cta { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 
     /* ── CONTACT FORM ── */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      margin-top: 2rem;
-    }
+    .contact-form { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 2rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
+    .form-field { display: flex; flex-direction: column; gap: 0.35rem; }
     .form-field label {
       font-size: 0.72rem;
       font-weight: 700;
@@ -330,20 +302,19 @@
     .form-field select:focus { border-color: var(--mauve); }
     .form-field textarea { resize: vertical; min-height: 100px; }
 
-    /* ── BOUTIQUE SECTION ── */
-    #boutique {
-      background: var(--blush-light);
+    .form-status {
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      font-size: 0.875rem;
+      display: none;
     }
+    .form-status.success { background: #d4edda; color: #155724; display: block; }
+    .form-status.error   { background: #f8d7da; color: #721c24; display: block; }
 
-    .boutique-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .boutique-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
+    /* ── BOUTIQUE ── */
+    #boutique { background: var(--blush-light); }
+    .boutique-inner { max-width: 1100px; margin: 0 auto; }
+    .boutique-header { text-align: center; margin-bottom: 3.5rem; }
 
     .product-grid {
       display: grid;
@@ -351,7 +322,6 @@
       gap: 1.5rem;
       margin-bottom: 3.5rem;
     }
-
     .product-card {
       background: var(--white);
       border-radius: 18px;
@@ -359,11 +329,7 @@
       box-shadow: 0 2px 12px rgba(139,74,92,0.08);
       transition: transform 0.25s, box-shadow 0.25s;
     }
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(139,74,92,0.15);
-    }
-
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(139,74,92,0.15); }
     .product-img {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -373,10 +339,7 @@
       justify-content: center;
       font-size: 2.5rem;
     }
-
-    .product-body {
-      padding: 1.25rem;
-    }
+    .product-body { padding: 1.25rem; }
     .product-name {
       font-family: 'Playfair Display', serif;
       font-size: 1.05rem;
@@ -384,23 +347,9 @@
       color: var(--mauve-dark);
       margin-bottom: 0.35rem;
     }
-    .product-desc {
-      font-size: 0.8rem;
-      color: var(--text-light);
-      line-height: 1.6;
-      margin-bottom: 0.75rem;
-    }
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .product-price {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--mauve);
-    }
+    .product-desc { font-size: 0.8rem; color: var(--text-light); line-height: 1.6; margin-bottom: 0.75rem; }
+    .product-footer { display: flex; align-items: center; justify-content: space-between; }
+    .product-price { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--mauve); }
     .btn-sm {
       padding: 0.45rem 1.1rem;
       font-size: 0.75rem;
@@ -416,13 +365,14 @@
     }
     .btn-sm:hover { background: var(--mauve-dark); }
 
+    /* ── PAYMENT STRIP ── */
     .payment-strip {
       background: var(--white);
       border-radius: 16px;
       padding: 2rem;
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: flex-start;
       gap: 2rem;
       justify-content: center;
       text-align: center;
@@ -439,18 +389,20 @@
       align-items: center;
       gap: 0.5rem;
     }
-    .pay-icon {
-      width: 56px; height: 56px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      font-weight: 900;
+    .pay-qr {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid var(--blush);
+      box-shadow: 0 4px 14px rgba(139,74,92,0.12);
     }
-    .pay-icon.venmo   { background: #3D95CE; color: white; }
-    .pay-icon.cashapp { background: #00D632; color: white; }
-    .pay-icon.paypal  { background: #003087; color: white; }
+    .pay-qr img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .pay-label {
       font-size: 0.72rem;
       font-weight: 700;
@@ -458,17 +410,8 @@
       text-transform: uppercase;
       color: var(--text-mid);
     }
-    .pay-handle {
-      font-size: 0.78rem;
-      color: var(--text-light);
-    }
-
-    .pickup-note {
-      margin-top: 1rem;
-      font-size: 0.8rem;
-      color: var(--text-light);
-      text-align: center;
-    }
+    .pay-handle { font-size: 0.78rem; color: var(--text-light); }
+    .pickup-note { margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-light); text-align: center; width: 100%; }
 
     /* ── FOOTER ── */
     footer {
@@ -493,39 +436,22 @@
       color: var(--text-light);
       margin-bottom: 1.75rem;
     }
-    .footer-contacts {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      margin-bottom: 1.75rem;
-    }
-    .footer-contacts a {
-      color: var(--blush-light);
-      text-decoration: none;
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
+    .footer-contacts { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 1.75rem; }
+    .footer-contacts a { color: var(--blush-light); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem; }
     .footer-contacts a:hover { color: var(--gold-light); }
-    .footer-copy {
-      font-size: 0.72rem;
-      color: var(--text-light);
-      margin-top: 1.5rem;
-    }
+    .footer-copy { font-size: 0.72rem; color: var(--text-light); margin-top: 1.5rem; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       .notary-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .form-row { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
+      .pay-qr { width: 110px; height: 110px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── PETALS ── -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const hero = document.querySelector('.hero');
@@ -552,13 +478,13 @@
   <p class="hero-sub">Notary Services & Boutique Finds</p>
   <p class="hero-tagline">A warm little corner of the world where paperwork meets pretty things.</p>
   <div class="hero-buttons">
-    <a href="#notary"  class="btn btn-primary">Book Notary Services</a>
+    <a href="#notary" class="btn btn-primary">Book Notary Services</a>
     <a href="#boutique" class="btn btn-secondary">Shop the Boutique</a>
   </div>
   <div class="scroll-hint">scroll</div>
 </section>
 
-<!-- ── RIBBON DIVIDER ── -->
+<!-- ── RIBBON ── -->
 <div class="ribbon-divider">
   <div class="ribbon-line"></div>
   <div class="ribbon-center">
@@ -571,10 +497,9 @@
   <div class="ribbon-line right"></div>
 </div>
 
-<!-- ── NOTARY SECTION ── -->
+<!-- ── NOTARY ── -->
 <section id="notary">
   <div class="notary-inner">
-
     <div>
       <span class="section-eyebrow">Notary Services</span>
       <h2 class="section-title">Official. <em>Friendly.</em><br>Right here for you.</h2>
@@ -614,6 +539,8 @@
 
       <div class="notary-cta">
         <a href="#contact-form" class="btn btn-primary">Request an Appointment</a>
+        <!-- CALENDLY: Replace YOUR_CALENDLY_LINK with her actual Calendly URL e.g. https://calendly.com/iris-pinkemporium -->
+        <a href="YOUR_CALENDLY_LINK" target="_blank" class="btn btn-secondary">Book Online ↗</a>
       </div>
     </div>
 
@@ -622,49 +549,51 @@
       <h2 class="section-title">Let's <em>connect.</em></h2>
       <p class="section-desc">Fill out the form and I'll get back to you quickly to confirm your appointment or answer any questions.</p>
 
-      <form class="contact-form" onsubmit="return false;">
+      <!-- FORMSPREE: Replace YOUR_FORM_ID with the ID from formspree.io e.g. xpwzgkrd -->
+      <form class="contact-form" id="contact-form-el" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="form-row">
           <div class="form-field">
             <label>First Name</label>
-            <input type="text" placeholder="Rosa" />
+            <input type="text" name="first_name" placeholder="Rosa" required />
           </div>
           <div class="form-field">
             <label>Last Name</label>
-            <input type="text" placeholder="Garcia" />
+            <input type="text" name="last_name" placeholder="Garcia" required />
           </div>
         </div>
         <div class="form-field">
           <label>Email</label>
-          <input type="email" placeholder="you@email.com" />
+          <input type="email" name="email" placeholder="you@email.com" required />
         </div>
         <div class="form-field">
           <label>Phone</label>
-          <input type="tel" placeholder="(210) 555-0000" />
+          <input type="tel" name="phone" placeholder="(956) 555-0000" />
         </div>
         <div class="form-field">
           <label>Service Needed</label>
-          <select>
+          <select name="service">
             <option value="">Select a service…</option>
             <option>Acknowledgment</option>
             <option>Jurat</option>
             <option>Oath / Affirmation</option>
             <option>Copy Certification</option>
             <option>General Notary</option>
+            <option>Boutique Inquiry</option>
             <option>Other / Not sure</option>
           </select>
         </div>
         <div class="form-field">
           <label>Message</label>
-          <textarea placeholder="Tell me a little about what you need and when works for you…"></textarea>
+          <textarea name="message" placeholder="Tell me a little about what you need and when works for you…"></textarea>
         </div>
+        <div class="form-status" id="form-status"></div>
         <button type="submit" class="btn btn-primary" style="width:100%;">Send Message ✦</button>
       </form>
     </div>
-
   </div>
 </section>
 
-<!-- ── RIBBON DIVIDER ── -->
+<!-- ── RIBBON ── -->
 <div class="ribbon-divider">
   <div class="ribbon-line"></div>
   <div class="ribbon-center">
@@ -675,10 +604,9 @@
   <div class="ribbon-line right"></div>
 </div>
 
-<!-- ── BOUTIQUE SECTION ── -->
+<!-- ── BOUTIQUE ── -->
 <section id="boutique">
   <div class="boutique-inner">
-
     <div class="boutique-header">
       <span class="section-eyebrow">The Boutique</span>
       <h2 class="section-title">Pretty things,<br><em>curated with love.</em></h2>
@@ -686,7 +614,6 @@
     </div>
 
     <div class="product-grid">
-
       <div class="product-card">
         <div class="product-img">🧴</div>
         <div class="product-body">
@@ -717,7 +644,7 @@
           <div class="product-name">Luxurious Homemade Body Oils</div>
           <div class="product-desc">Handmade, natural, organic, and deeply moisturizing. Treat yourself to an exquisite experience.</div>
           <div class="product-footer">
-            <span class="product-price">$14</span>
+            <span class="product-price">$10</span>
             <a href="#contact-form" class="btn-sm">Inquire</a>
           </div>
         </div>
@@ -729,7 +656,7 @@
           <div class="product-name">Sweet/Spicy Gourmet Pickles</div>
           <div class="product-desc">Homemade Gourmet Pickles. Sweet and/or Spicy, your pick.</div>
           <div class="product-footer">
-            <span class="product-price">$10</span>
+            <span class="product-price">$10 (8oz) · $20 (16oz)</span>
             <a href="#contact-form" class="btn-sm">Inquire</a>
           </div>
         </div>
@@ -758,7 +685,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- PAYMENT -->
@@ -766,24 +692,30 @@
       <h3>Ready to order? Pay it your way. 💛</h3>
 
       <div class="pay-option">
-        <div class="pay-icon venmo">V</div>
+        <div class="pay-qr">
+          <img src="Iris_Venmo.jpg" alt="Venmo QR code" />
+        </div>
         <div class="pay-label">Venmo</div>
-        <div class="pay-handle">@PinkEmporium</div>
+        <div class="pay-handle">@imontalvo</div>
       </div>
 
       <div class="pay-option">
-        <div class="pay-icon cashapp">$</div>
+        <div class="pay-qr">
+          <img src="Iris_Cashapp.jpg" alt="Cash App QR code" />
+        </div>
         <div class="pay-label">Cash App</div>
-        <div class="pay-handle">$PinkEmporium</div>
+        <div class="pay-handle">$imontal</div>
       </div>
 
       <div class="pay-option">
-        <div class="pay-icon paypal">P</div>
-        <div class="pay-label">PayPal</div>
-        <div class="pay-handle">@PinkEmporium</div>
+        <div class="pay-qr">
+          <img src="Iris_Zelle.jpg" alt="Zelle QR code" />
+        </div>
+        <div class="pay-label">Zelle</div>
+        <div class="pay-handle">956-373-8850</div>
       </div>
 
-      <p class="pickup-note" style="width:100%;">📍 Local pickup available in McAllen &nbsp;·&nbsp; Small delivery fee for nearby areas</p>
+      <p class="pickup-note">📍 Local pickup available in McAllen &nbsp;·&nbsp; Small delivery fee for nearby areas</p>
     </div>
 
   </div>
@@ -794,15 +726,47 @@
   <div class="footer-inner">
     <div class="footer-name">Pink Emporium</div>
     <div class="footer-tagline">Notary Services & Boutique · McAllen, TX</div>
-
     <div class="footer-contacts">
       <a href="mailto:pinkemporium.notarygourmetreats@gmail.com">✉ pinkemporium.notarygourmetreats@gmail.com</a>
-      <a href="tel:9563738850">📞 (956)373-8850</a>
+      <a href="tel:9563738850">📞 (956) 373-8850</a>
     </div>
-
     <p class="footer-copy">Pink Emporium © 2026 &nbsp;✦&nbsp; Made with love in McAllen</p>
   </div>
 </footer>
+
+<script>
+  const form = document.getElementById('contact-form-el');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        status.className = 'form-status success';
+        status.textContent = '✦ Message sent! Iris will get back to you shortly.';
+        form.reset();
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      status.className = 'form-status error';
+      status.textContent = 'Something went wrong. Please try emailing directly at pinkemporium.notarygourmetreats@gmail.com';
+    }
+
+    btn.textContent = 'Send Message ✦';
+    btn.disabled = false;
+  });
+</script>
 
 </body>
 </html>
